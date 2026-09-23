@@ -857,4 +857,53 @@ function renderProfile() {
       '<span class="icon">🔒</span>' +
       '<h3>Steam не привязан</h3>' +
       '<p>Привяжи Steam-аккаунт, чтобы увидеть свой профиль</p>' +
-      '<button class="btn-primary" onclick="startSteamLink()">Привяза
+      '<button class="btn-primary" onclick="startSteamLink()">Привязать Steam</button>' +
+    '</div>';
+    return;
+  }
+
+  c.innerHTML = '<div class="profile-header">' +
+    '<div class="profile-top">' +
+      '<img class="avatar" src="' + user.avatar + '" alt="">' +
+      '<div>' +
+        '<div class="profile-name">' + user.nickname + '</div>' +
+        '<div class="profile-status"><span class="dot"></span>Steam привязан</div>' +
+        '<div class="profile-steamid">SteamID: ' + user.steamid + '</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+  '<div class="profile-stats">' +
+    '<div class="pstat"><div class="value">0</div><div class="label">Убийств</div></div>' +
+    '<div class="pstat"><div class="value">0</div><div class="label">Смертей</div></div>' +
+    '<div class="pstat"><div class="value">0.00</div><div class="label">K/D</div></div>' +
+    '<div class="pstat"><div class="value">0</div><div class="label">Часов</div></div>' +
+  '</div>' +
+  '<button class="btn-primary" onclick="logout()">Отвязать Steam</button>';
+}
+
+function logout() {
+  setUser(null);
+  showModal('👋', 'Выход', 'Steam отвязан.');
+  renderProfile();
+}
+
+function showModal(icon, title, text) {
+  document.getElementById('modal-icon').textContent = icon;
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-text').textContent = text;
+  document.getElementById('modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderServers();
+  renderRating();
+  renderShop();
+  renderAuth();
+});
+</script>
+</body>
+</html>

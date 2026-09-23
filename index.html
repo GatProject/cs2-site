@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS2 PROJECT</title>
+<title>Gat Project</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --bg: #0a0e14;
-  --bg-2: #12171f;
-  --bg-3: #1a212c;
+  --bg: #050608;
+  --bg-2: #0b0d10;
+  --bg-3: #14171c;
   --accent: #00e0a4;
   --text: #e6edf3;
-  --text-dim: #8b95a3;
-  --border: #232b38;
+  --text-dim: #6b7280;
+  --border: #1a1e25;
   --danger: #ff4d5e;
 }
 html, body { height: 100%; }
@@ -23,69 +23,68 @@ body {
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  height: 70px;
-  background: rgba(18, 23, 31, 0.95);
-  backdrop-filter: blur(12px);
+  height: 68px;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 .logo {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   cursor: pointer;
   user-select: none;
+  text-transform: uppercase;
 }
 .logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 8px; }
+.nav-links { display: flex; gap: 4px; }
 .nav-links button {
   background: none;
   border: none;
   color: var(--text-dim);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: all .2s;
   font-family: inherit;
 }
 .nav-links button:hover { color: var(--text); background: var(--bg-3); }
-.nav-links button.active { color: var(--accent); background: rgba(0, 224, 164, 0.1); }
+.nav-links button.active { color: var(--accent); background: rgba(0, 224, 164, 0.08); }
 .auth-block { display: flex; align-items: center; gap: 10px; }
 .btn-steam {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(180deg, #1b2838, #171a21);
-  color: white;
-  border: 1px solid #2a475e;
-  padding: 10px 18px;
-  border-radius: 6px;
+  gap: 8px;
+  background: var(--bg-3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 9px 16px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
   transition: all .2s;
 }
-.btn-steam:hover {
-  background: linear-gradient(180deg, #2a475e, #1b2838);
-  border-color: #66c0f4;
-}
+.btn-steam:hover { background: var(--accent); color: #001a12; border-color: var(--accent); }
 .user-card {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background: var(--bg-3);
-  padding: 6px 14px 6px 6px;
+  padding: 5px 14px 5px 5px;
   border-radius: 30px;
   border: 1px solid var(--border);
   cursor: pointer;
@@ -93,74 +92,75 @@ body {
 }
 .user-card:hover { border-color: var(--accent); }
 .user-card img {
-  width: 36px; height: 36px;
+  width: 32px; height: 32px;
   border-radius: 50%;
   border: 2px solid var(--accent);
 }
-.user-card .name { font-weight: 600; font-size: 14px; }
-.page { display: none; animation: fadeIn .3s ease; }
-.page.active { display: block; }
+.user-card .name { font-weight: 600; font-size: 13px; }
+.page { display: none; }
+.page.active { display: block; animation: fadeIn .25s ease; }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .hero {
   text-align: center;
-  padding: 100px 20px 70px;
+  padding: 110px 20px 80px;
   position: relative;
   overflow: hidden;
 }
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%; left: 50%;
+  top: -60%; left: 50%;
   transform: translateX(-50%);
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(0,224,164,.18), transparent 65%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(0,224,164,.12), transparent 60%);
   pointer-events: none;
 }
 .hero h1 {
-  font-size: 56px;
+  font-size: 52px;
   font-weight: 900;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   position: relative;
-  background: linear-gradient(135deg, #fff 30%, var(--accent));
+  background: linear-gradient(135deg, #fff 40%, var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.1;
+  letter-spacing: -1px;
 }
 .hero p {
   color: var(--text-dim);
-  font-size: 18px;
-  margin-bottom: 36px;
+  font-size: 17px;
+  margin-bottom: 32px;
   position: relative;
 }
 .btn-primary {
   display: inline-block;
   background: var(--accent);
   color: #001a12;
-  padding: 15px 36px;
+  padding: 14px 32px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
   cursor: pointer;
   font-family: inherit;
   transition: all .2s;
-  box-shadow: 0 4px 16px rgba(0,224,164,.3);
+  box-shadow: 0 4px 20px rgba(0,224,164,.25);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0,224,164,.45);
+  box-shadow: 0 8px 28px rgba(0,224,164,.4);
   background: #22f0b8;
 }
 .stats-bar {
   display: flex;
   justify-content: center;
-  gap: 80px;
-  padding: 36px 20px;
+  gap: 70px;
+  padding: 32px 20px;
   background: var(--bg-2);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -169,15 +169,16 @@ body {
 .stat { text-align: center; }
 .stat span {
   display: block;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   color: var(--accent);
   line-height: 1;
   margin-bottom: 6px;
+  letter-spacing: -1px;
 }
 .stat small {
   color: var(--text-dim);
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 600;
@@ -188,45 +189,45 @@ body {
   margin: 0 auto;
 }
 .section h2 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   display: flex;
   align-items: center;
   gap: 12px;
+  letter-spacing: -0.5px;
 }
 .section h2::before {
   content: '';
-  width: 4px;
-  height: 28px;
+  width: 3px;
+  height: 24px;
   background: var(--accent);
   border-radius: 2px;
 }
 .servers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
 }
 .server-card {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: all .25s;
-  position: relative;
+  transition: all .2s;
 }
 .server-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  border-color: rgba(0,224,164,.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.5);
 }
 .server-header {
-  height: 130px;
-  background: linear-gradient(135deg, var(--bg-3), #0d1219);
+  height: 110px;
+  background: linear-gradient(135deg, var(--bg-3), #050608);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 54px;
+  font-size: 44px;
   position: relative;
   border-bottom: 1px solid var(--border);
 }
@@ -234,40 +235,40 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(0,224,164,.1), transparent 70%);
+  background: radial-gradient(circle at center, rgba(0,224,164,.08), transparent 70%);
 }
-.server-body { padding: 20px; }
+.server-body { padding: 18px; }
 .server-card h3 {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .server-mode {
   color: var(--text-dim);
-  font-size: 13px;
-  margin-bottom: 16px;
+  font-size: 12px;
+  margin-bottom: 14px;
 }
 .server-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  font-size: 14px;
+  margin-bottom: 14px;
+  font-size: 13px;
 }
 .status {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 .status::before {
   content: '';
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
 }
 .status.online { color: var(--accent); }
-.status.online::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.status.online::before { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
 .status.offline { color: var(--danger); }
 .status.offline::before { background: var(--danger); }
 .players { color: var(--text-dim); font-weight: 600; }
@@ -277,11 +278,11 @@ body {
   text-align: center;
   background: var(--bg-3);
   color: var(--text);
-  padding: 11px;
+  padding: 10px;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
   border: 1px solid var(--border);
   transition: all .2s;
   cursor: pointer;
@@ -298,124 +299,125 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   background: var(--bg-2);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
 }
 .rating-table th {
   background: var(--bg-3);
-  padding: 16px 20px;
+  padding: 14px 18px;
   text-align: left;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-dim);
   font-weight: 700;
 }
 .rating-table td {
-  padding: 16px 20px;
+  padding: 14px 18px;
   border-top: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 13px;
 }
-.rating-table tr:hover td { background: rgba(0,224,164,.04); }
+.rating-table tr:hover td { background: rgba(0,224,164,.03); }
 .rank {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   border-radius: 8px;
   background: var(--bg-3);
   font-weight: 800;
-  font-size: 13px;
+  font-size: 12px;
 }
 .rank.gold { background: linear-gradient(135deg,#ffd700,#ff8c00); color: #1a1a1a; }
 .rank.silver { background: linear-gradient(135deg,#c0c0c0,#808080); color: #1a1a1a; }
 .rank.bronze { background: linear-gradient(135deg,#cd7f32,#8b4513); color: #fff; }
-.player-cell { display: flex; align-items: center; gap: 12px; }
+.player-cell { display: flex; align-items: center; gap: 10px; }
 .player-cell img {
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   border: 1px solid var(--border);
 }
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
 .shop-card {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 22px;
   text-align: center;
-  transition: all .25s;
+  transition: all .2s;
   position: relative;
   overflow: hidden;
 }
 .shop-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  transform: translateY(-3px);
+  border-color: rgba(0,224,164,.4);
+  box-shadow: 0 12px 28px rgba(0,0,0,.5);
 }
 .shop-card .icon {
-  font-size: 48px;
-  margin-bottom: 14px;
+  font-size: 42px;
+  margin-bottom: 12px;
   display: block;
 }
-.shop-card h3 { font-size: 18px; margin-bottom: 8px; }
+.shop-card h3 { font-size: 16px; margin-bottom: 6px; }
 .shop-card .desc {
   color: var(--text-dim);
-  font-size: 13px;
-  margin-bottom: 18px;
-  min-height: 36px;
+  font-size: 12px;
+  margin-bottom: 16px;
+  min-height: 32px;
 }
 .shop-card .price {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
 }
 .btn-buy {
   width: 100%;
-  padding: 12px;
+  padding: 11px;
   background: var(--accent);
   color: #001a12;
   border: none;
   border-radius: 8px;
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 13px;
   cursor: pointer;
   font-family: inherit;
   transition: all .2s;
 }
-.btn-buy:hover { background: #22f0b8; transform: scale(1.02); }
+.btn-buy:hover { background: #22f0b8; }
 .badge {
   position: absolute;
-  top: 12px; right: -30px;
+  top: 10px; right: -28px;
   background: var(--danger);
   color: white;
-  padding: 4px 40px;
+  padding: 3px 36px;
   transform: rotate(45deg);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
 }
 .not-logged {
   text-align: center;
-  padding: 70px 30px;
+  padding: 60px 30px;
   background: var(--bg-2);
   border: 1px dashed var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
 }
-.not-logged .icon { font-size: 64px; margin-bottom: 20px; display: block; }
-.not-logged h3 { color: var(--text); margin-bottom: 12px; font-size: 24px; }
-.not-logged p { color: var(--text-dim); margin-bottom: 24px; font-size: 15px; }
+.not-logged .icon { font-size: 56px; margin-bottom: 18px; display: block; }
+.not-logged h3 { color: var(--text); margin-bottom: 10px; font-size: 22px; }
+.not-logged p { color: var(--text-dim); margin-bottom: 22px; font-size: 14px; }
 .profile-header {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 24px;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -423,71 +425,73 @@ body {
   content: '';
   position: absolute;
   top: -100px; right: -100px;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(0,224,164,.15), transparent 70%);
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(0,224,164,.12), transparent 70%);
 }
 .profile-top {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   position: relative;
 }
 .profile-top img.avatar {
-  width: 110px; height: 110px;
+  width: 96px; height: 96px;
   border-radius: 50%;
   border: 3px solid var(--accent);
-  box-shadow: 0 0 24px rgba(0,224,164,.4);
+  box-shadow: 0 0 20px rgba(0,224,164,.3);
 }
 .profile-name {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
 }
 .profile-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-dim);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .profile-status .dot {
-  width: 10px; height: 10px;
+  width: 9px; height: 9px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
+  box-shadow: 0 0 6px var(--accent);
 }
 .profile-steamid {
   color: var(--text-dim);
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'Consolas', monospace;
   background: var(--bg-3);
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 6px;
   display: inline-block;
   border: 1px solid var(--border);
 }
 .profile-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
 }
 .pstat {
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 22px;
+  padding: 20px;
   text-align: center;
 }
 .pstat .value {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 900;
   color: var(--accent);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  letter-spacing: -1px;
 }
 .pstat .label {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -497,55 +501,55 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.75);
+  background: rgba(0,0,0,.8);
   backdrop-filter: blur(6px);
   z-index: 1000;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
-.modal-overlay.show { display: flex; animation: fadeIn .2s; }
+.modal-overlay.show { display: flex; }
 .modal {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  max-width: 420px;
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 400px;
   width: 100%;
   text-align: center;
 }
-.modal .icon { font-size: 56px; margin-bottom: 16px; display: block; }
-.modal h3 { margin-bottom: 10px; font-size: 22px; }
-.modal p { color: var(--text-dim); margin-bottom: 24px; font-size: 14px; line-height: 1.5; }
+.modal .icon { font-size: 48px; margin-bottom: 14px; display: block; }
+.modal h3 { margin-bottom: 8px; font-size: 20px; }
+.modal p { color: var(--text-dim); margin-bottom: 20px; font-size: 13px; line-height: 1.5; }
 .modal .btn-primary { width: 100%; }
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 28px;
   color: var(--text-dim);
-  font-size: 13px;
+  font-size: 12px;
   border-top: 1px solid var(--border);
   margin-top: 40px;
 }
 @media (max-width: 768px) {
-  .navbar { padding: 12px 16px; height: auto; flex-wrap: wrap; gap: 12px; }
+  .navbar { padding: 12px 16px; height: auto; flex-wrap: wrap; gap: 10px; }
   .nav-links { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; }
-  .nav-links button { padding: 8px 12px; font-size: 13px; }
-  .hero h1 { font-size: 34px; }
+  .nav-links button { padding: 8px 12px; font-size: 12px; }
+  .hero h1 { font-size: 32px; }
   .hero { padding: 60px 20px 40px; }
-  .stats-bar { gap: 30px; padding: 24px 16px; }
-  .stat span { font-size: 26px; }
+  .stats-bar { gap: 28px; padding: 22px 16px; }
+  .stat span { font-size: 24px; }
   .section { padding: 40px 16px; }
   .profile-top { flex-direction: column; text-align: center; }
-  .profile-name { font-size: 24px; }
+  .profile-name { font-size: 22px; }
   .rating-table { font-size: 12px; }
-  .rating-table th, .rating-table td { padding: 12px 10px; }
+  .rating-table th, .rating-table td { padding: 10px 8px; }
 }
 </style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="logo" onclick="go('home')">CS2<span>PROJECT</span></div>
+  <div class="logo" onclick="go('home')">Gat<span>Project</span></div>
   <nav class="nav-links">
     <button data-page="home" class="active" onclick="go('home')">Главная</button>
     <button data-page="servers" onclick="go('servers')">Серверы</button>
@@ -624,14 +628,12 @@ footer {
 </div>
 
 <footer>
-  © 2025 CS2 Project. Не связан с Valve Corporation.
+  © 2025 Gat Project. Не связан с Valve Corporation.
 </footer>
 
 <script>
-/* ==================== НАСТРОЙКИ ==================== */
 var WORKER_URL = 'https://cs2-reg.eeegor6109.workers.dev';
 
-/* ==================== ДАННЫЕ ==================== */
 var SERVERS = [
   { id:1, name:"DM #1 — Dust2 24/7", mode:"Deathmatch", ip:"play.example.com:27015", online:24, max:32, icon:"🎯", status:"online" },
   { id:2, name:"Retake #1", mode:"Retakes", ip:"play.example.com:27016", online:9, max:10, icon:"⚡", status:"online" },
@@ -660,7 +662,6 @@ var SHOP_ITEMS = [
   { icon:"🚀", title:"Буст XP x2", desc:"Двойной опыт на 7 дней", price:79, badge:"NEW" }
 ];
 
-/* ==================== НАВИГАЦИЯ ==================== */
 function go(page) {
   var pages = document.querySelectorAll('.page');
   for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
@@ -674,7 +675,6 @@ function go(page) {
   if (page === 'profile') renderProfile();
 }
 
-/* ==================== СЕРВЕРЫ ==================== */
 function serverCardHTML(s) {
   return '<div class="server-card">' +
     '<div class="server-header">' + s.icon + '</div>' +
@@ -714,7 +714,6 @@ function connect(ip, name) {
   setTimeout(function() { window.location.href = 'steam://connect/' + ip; }, 800);
 }
 
-/* ==================== РЕЙТИНГ ==================== */
 function renderRating() {
   var body = document.getElementById('rating-body');
   if (!body) return;
@@ -736,7 +735,6 @@ function renderRating() {
   body.innerHTML = html;
 }
 
-/* ==================== МАГАЗИН ==================== */
 function renderShop() {
   var grid = document.getElementById('shop-grid');
   if (!grid) return;
@@ -764,8 +762,7 @@ function buy(title) {
   showModal('💳', 'Оплата', 'Товар "' + title + '" будет доступен после подключения платёжной системы.');
 }
 
-/* ==================== АВТОРИЗАЦИЯ (localStorage) ==================== */
-var STORAGE_KEY = 'cs2_user';
+var STORAGE_KEY = 'gat_user';
 
 function getUser() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); }
@@ -792,11 +789,8 @@ function renderAuth() {
   }
 }
 
-/* ==================== ПРИВЯЗКА STEAM ==================== */
 function startSteamLink() {
-  // Генерируем код вида CS2-XXXXXX
   var code = 'CS2-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-  // Переходим на страницу профиля с кодом
   window.location.href = window.location.pathname + '?link=' + code;
 }
 
@@ -805,15 +799,15 @@ function renderLinkWaiting(container, code) {
     '<span class="icon">🎮</span>' +
     '<h3>Привязка Steam</h3>' +
     '<p>Зайди на наш сервер в CS2 и напиши в чат команду:</p>' +
-    '<div style="background:#1a212c;padding:16px 24px;border-radius:8px;font-family:Consolas,monospace;font-size:20px;color:#00e0a4;margin:16px 0;border:1px solid #232b38;display:inline-block">' +
+    '<div style="background:#14171c;padding:14px 22px;border-radius:8px;font-family:Consolas,monospace;font-size:19px;color:#00e0a4;margin:14px 0;border:1px solid #1a1e25;display:inline-block">' +
       '!reg ' + code +
     '</div>' +
-    '<p id="link-status" style="color:#8b95a3">Ожидание подтверждения... Код действует 10 минут.</p>' +
+    '<p id="link-status" style="color:#6b7280">Ожидание подтверждения... Код действует 10 минут.</p>' +
     '<button class="btn-primary" style="margin-top:16px" onclick="cancelLink()">Отмена</button>' +
   '</div>';
 
   var attempts = 0;
-  var maxAttempts = 300; // 10 минут
+  var maxAttempts = 300;
 
   var poll = setInterval(function() {
     attempts++;
@@ -847,7 +841,6 @@ function cancelLink() {
   renderProfile();
 }
 
-/* ==================== ПРОФИЛЬ ==================== */
 function renderProfile() {
   var c = document.getElementById('profile-content');
   if (!c) return;
@@ -864,4 +857,4 @@ function renderProfile() {
       '<span class="icon">🔒</span>' +
       '<h3>Steam не привязан</h3>' +
       '<p>Привяжи Steam-аккаунт, чтобы увидеть свой профиль</p>' +
-      '<
+      '<button class="btn-primary" onclick="startSteamLink()">Привяза
